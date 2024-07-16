@@ -185,7 +185,7 @@
     </div>
 
     <footer class="my-5 pt-5 text-muted text-center text-small">
-      <p class="mb-1">&copy; 2017-2018 Company Name</p>
+      <p class="mb-1">&copy; 2017-2018 KamarTaj</p>
       <ul class="list-inline">
         <li class="list-inline-item"><a href="#">Privacy</a></li>
         <li class="list-inline-item"><a href="#">Terms</a></li>
@@ -210,7 +210,7 @@
   }
 
 
-  console.log(cart)
+  // console.log(cart)
   for (item in cart) {
     let Qty = cart[item][0]
     let name = cart[item][1]
@@ -219,7 +219,7 @@
             <div>
               <h6 class="my-0">${name}<span class="badge badge-primary badge-pill">${Qty}</span></h6>
             </div>
-            <span class="text-muted">$${price}</span>
+            <span class="text-muted">${price}</span>
           </li>`
     $("#items").append(myStr);
   }

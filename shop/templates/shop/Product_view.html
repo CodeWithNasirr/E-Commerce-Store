@@ -11,15 +11,17 @@
                 <img src="/media/{{ products.image }}" width="301px" height="300px">
             </div>
             <div class="row my-4">
-                    <button  id="cart" class="btn btn-primary cart" >Add To Cart</button>
-                <button type="button" class="btn btn-primary mx-4">Buy Now</button>
+                <span id=divpr{{products.id}} class="divpr">
+                    <button  id="pr{{products.id}}" class="btn btn-primary cart" >Add To Cart</button>
+                    </span>
+                <a href="/checkout"> <button id="Buy" class="btn btn-primary mx-4" >Buy Now</button></a>
             </div>
         </div>
-
+ 
         <div class="col-md-8">
             <div class="x">
-                <h5>Name: {{ products.name }} </h5>
-                <p><b>Price: {{ products.price }}</b></p>
+                <h5 class="card-title" id="namepr{{products.id}}">Name: {{ products.name|slice:':16'}} </h5>
+                <h5 class="card-price" id="pricepr{{products.id}}">Price: {{ products.price }}</h5>
                 <p><b>description: </b> {{ products.description }}</p>
         </div>
     </div>
@@ -28,7 +30,59 @@
 
 
 {% block js %}
-
+<script>
+    if (localStorage.getItem('cart') == null) {
+      var cart = {};
+    } else {
+      var cart = JSON.parse(localStorage.getItem('cart'));
+      updateCart(cart);
+    }
+  
+    $('.divpr').on('click', "button.cart", function () { 
+      var prStr = this.id.toString();
+    //   console.log(prStr);
+      
+      if (cart[prStr] != undefined) {
+          Qty = cart[prStr][0] + 1;
+      } else {
+        Qty=1
+        name = document.getElementById('name' + prStr).innerHTML;
+        price= document.getElementById('price' + prStr).innerHTML;
+        cart[prStr] = [Qty, name.slice(6,),price.slice(7,)]
+      }
+      updateCart(cart);
+    });
+    
+    function updateCart(cart) {
+      for (var item in cart) {
+        let element = document.getElementById('div' + item);
+        // console.log(element)
+        if (element) {
+          element.innerHTML = "<button id='minus" + item + "' class='btn btn-primary minus'>-</button> <span id='val" + item + "'>" + cart[item][0] + "</span> <button id='plus" + item + "' class='btn btn-primary plus'> + </button>";
+        }
+      }
+  
+      localStorage.setItem('cart', JSON.stringify(cart));
+      document.getElementById('cart').innerHTML = Object.keys(cart).reduce((accumulator, key) => accumulator + cart[key][0], 0);
+    }
+  
+    $('.divpr').on("click", "button.minus", function () {
+      var a = this.id.slice(7);
+      cart['pr' + a][0] = Math.max(0, cart['pr' + a][0] - 1);
+      document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+      updateCart(cart);
+    });
+  
+    $('.divpr').on("click", "button.plus", function () {
+      var a = this.id.slice(6);
+      cart['pr' + a][0] += 1;
+      document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+      updateCart(cart);
+    });
+  
+    updateCart(cart);
+  </script>
+  
 {% endblock %}
 
 

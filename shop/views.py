@@ -14,11 +14,41 @@ def index(request):
         n = len(mypdt)
         nSlide = n // 4 + ceil((n / 4) - (n // 4))
         allprd.append([mypdt,range(1,nSlide),nSlide])
-        value = {'allpdt': allprd}
+    value = {'allpdt': allprd}
     return render(request,"shop/index.html",value)
+
+
+def SearchMatch(query,item):
+    if query in item.name.lower() or query in item.description.lower() or query in item.category.name.lower():
+        return True
+    else:
+        return False
+
+
+def Search(request):
+    query=request.GET.get('search').lower()
+    allprd = []
+    allCat = Product.objects.values('category')
+    # print(allCat)
+    cats = {item['category'] for item in allCat}
+    for cat in cats:
+        prod = Product.objects.filter(category=cat)
+        mypdt=[item for item in prod if SearchMatch(query,item)]
+        n = len(mypdt)
+        print(n)
+        nSlide = n // 4 + ceil((n / 4) - (n // 4))
+        if len(mypdt)!=0:
+            allprd.append([mypdt,range(1,nSlide),nSlide])
+    value = {'allpdt': allprd}
+    if len(allprd)==0 or len(query)<4:
+        value={'msg':"The Item Is Not Avalabile Right Now! "}
+    return render(request,"shop/Search.html",value)
+
 
 def About(request):
     return render(request,"shop/About.html")
+def Faq(request):
+    return render(request,"shop/Faq.html") 
 
 def contact_form_submit(request):
     if request.method == 'POST':
@@ -39,8 +69,6 @@ def product_list(request):
     return render(request,"shop/product_list.html",{"Products": products})
 
 
-def Search(request):
-    return render(request,"shop/Search.html")
 
 
 def tracking(request):

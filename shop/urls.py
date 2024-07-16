@@ -6,6 +6,7 @@ urlpatterns = [
     path("product_list",views.product_list,name="product_list"),
     path("Tracker",views.tracking,name="tracking"),
     path("About",views.About,name="About"),
+    path("Faq",views.Faq,name="Faq"),
     path("contact",views.contact_form_submit,name="contact_form_submit"),
     path("search",views.Search,name="Search"),
     path("ProductView/<int:myid>", views.Product_view, name="ProductView"),

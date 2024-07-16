@@ -35,7 +35,7 @@ background-color: blue;
 }
 
 {% endblock %}
-{% block title %}Shop{% endblock %}
+{% block title %}KamarTaj{% endblock %}
 {% block body %}
 {% load static %}
 <div class="container">
@@ -112,7 +112,7 @@ background-color: blue;
 
 {% block js %}
 <script>
-    console.log('Working')
+    // console.log('Working')
     if (localStorage.getItem('cart') == null) {
         var cart = {};
     }
@@ -125,7 +125,7 @@ background-color: blue;
     // $('.cart').click(function(){
     $('.divpr').on('click', "button.cart", function () { 
         var prStr = this.id.toString();
-        console.log(prStr)
+        // console.log(prStr)
         
         if (cart[prStr] != undefined) {
             Qty = cart[prStr][0] + 1
@@ -179,7 +179,7 @@ background-color: blue;
         localStorage.setItem('cart', JSON.stringify(cart));
         let a = document.getElementById('cart').innerHTML = sum;
         updatePopOver(cart);
-        console.log(cart);
+        // console.log(cart);
 
     }
 
