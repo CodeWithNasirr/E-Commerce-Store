@@ -48,4 +48,4 @@ class OrderUpdate(models.Model):
     timestap=models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return self.update_desc[0:7] + "......"
+        return f"Order {self.order_id} - {self.update_desc[:50]}..."

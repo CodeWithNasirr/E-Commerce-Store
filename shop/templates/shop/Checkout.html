@@ -3,11 +3,12 @@
 {% block title %}Checkout{% endblock %}
 
 {% block body %}
+{% load static %}
 <div class="container">
-    <div class="py-5 text-center"> 
-      <img class="d-block mx-auto mb-4" src="#" alt="img" width="72" height="72">
-      <h2>Checkout form</h2>
-      <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="{% static 'shop/chek.webp' %}" alt="Checkout Logo" width="330px" height="100px">
+        <h2>Your New Checkout Form</h2>
+        <p class="lead">Please fill in your details to proceed with the checkout.</p>
     </div>
 
     <div class="row">
@@ -38,7 +39,7 @@
       </div>
       <div class="col-md-8 order-md-1">
         <h4 class="mb-3">Billing address</h4>
-        <form  method="post" action="/Shop/checkout">{% csrf_token %}
+        <form  method="post" action="checkout">{% csrf_token %}
           <input type="hidden"  id="itemsJSON" name="itemsJson">
           <div class="row">
             <div class="col-md-6 mb-3">

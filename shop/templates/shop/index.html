@@ -23,6 +23,13 @@ bottom:auto;
 margin-top:-203px;
 }
 
+body .carousel-indicators{
+    margin:-25px;
+}
+body .carousel-indicators li {
+    background-color:rgb(86 72 217 / 50%)
+}
+
 body .carousel-indicators .active{
 background-color: blue;
 }
@@ -55,7 +62,7 @@ background-color: blue;
                     <span id=divpr{{i.id}} class="divpr">
                     <button  id="pr{{i.id}}" class="btn btn-primary cart" >Add To Cart</button>
                     </span>
-                    <a href="/Shop/ProductView/{{i.id}}"> <button id="qv{{i.id}}" class="btn btn-primary mx-2" >Quick View</button></a>
+                    <a href="ProductView/{{i.id}}"> <button id="qv{{i.id}}" class="btn btn-primary mx-2" >Quick View</button></a>
 
                 </div>
                 </div>
@@ -85,6 +92,23 @@ background-color: blue;
 {% endfor %}
 </div>
 {% endblock %}
+<footer class="bg-dark text-white mt-5 p-4 text-center">
+    <div class="container">
+        <p>&copy; 2024 KamarTaj. All Rights Reserved.</p>
+        <ul class="list-inline">
+            <li class="list-inline-item">
+                <a href="#" class="text-white">Privacy Policy</a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#" class="text-white">Terms of Service</a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#" class="text-white">Contact</a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
 
 {% block js %}
 <script>
@@ -138,7 +162,7 @@ background-color: blue;
             popStr = popStr + document.getElementById('name' + item).innerHTML.slice(0, 11) + ".... Qty: " + cart[item][0] + "<br>";
             i = i + 1;
         }
-        popStr = popStr + "</div> <a href='/Shop/checkout'><button class='btn btn-primary' id='checkout'>Checkout</button></a> <button class='btn btn-primary' onclick='clearCart()' id='clearCart'>ClearCart</button>"
+        popStr = popStr + "</div> <a href='checkout'><button class='btn btn-primary' id='checkout'>Checkout</button></a> <button class='btn btn-primary' onclick='clearCart()' id='clearCart'>ClearCart</button>"
         document.getElementById('popcard').setAttribute('data-content', popStr);
         $('#popcard').popover('show');
 

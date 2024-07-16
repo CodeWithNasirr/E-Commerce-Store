@@ -4,12 +4,7 @@ from django.shortcuts import render
 from .models import Product,Contact,Orders,OrderUpdate
 from math import ceil
 import json
-# Create your views here.
 def index(request):
-    # products = Product.objects.all()
-    # value = {"no_of_slides":nSlide,"range":range(1,nSlide),"Product":products}
-    # allpdt=[[products , range(1,nSlide) , nSlide]]
-    # value={"allpdt" : allpdt}
     allprd = []
     allCat = Product.objects.values('category')
     # print(allCat)
@@ -32,7 +27,6 @@ def contact_form_submit(request):
         desc = request.POST.get('description')
         phone = request.POST.get('phone')
 
-        # Create a Contact instance
         x = Contact(name=name, email=email, description=desc, phone=phone)
         x.save()
 
@@ -42,7 +36,6 @@ def contact_form_submit(request):
 
 def product_list(request):
     products = Product.objects.all()
-    # print(products)
     return render(request,"shop/product_list.html",{"Products": products})
 
 
@@ -73,7 +66,7 @@ def tracking(request):
             return HttpResponse (f"Error {e}")
 
         
-    return render(request,'shop/tracker.html')
+    return render(request,'shop/Tracker.html')
 
 
 def Product_view(request,myid):
