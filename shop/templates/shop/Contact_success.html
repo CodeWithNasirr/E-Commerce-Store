@@ -1,0 +1,61 @@
+{% extends 'shop/basic.html' %}
+
+{% block title %}Contact Successfully{% endblock %}
+{% block css %}
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 400px;
+    width: 90%;
+    padding: 20px;
+    text-align: center;
+}
+.icon {
+    font-size: 50px;
+    color: #4CAF50;
+}
+h1 {
+    font-size: 24px;
+    margin: 20px 0;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    /* text-decoration: none; */
+    /* transition: background 0.3s; */
+}
+
+</style>
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="icon">✔️</div>
+    <h1>Your details Saved Successfully!</h1>
+
+ 
+    <div class="buttons">
+        <a href="/Shop" class="button">Return Home</a>
+    </div>
+</div>
+{% endblock %}
