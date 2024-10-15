@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.navigation{
+    height: 80px;
+    /* background-color: #bb8a8a; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-left span a{
+    font-weight: bolder;
+    list-style: none;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 8px;
+}
+
+
+.nav-left ul{
+    display: flex;
+    align-items: center;
+    margin: 0 23px;
+    font-family:var(--font1)
+}
+
+.nav-left ul li{
+    list-style: none;
+    padding: 12px;
+}
+
+.nav-left ul li a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.nav-left ul li a:hover{
+    color:var(--main-bg-color);
+    /* background-color: var(--main-bg-color); */
+}
+
+.nav-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-input{
+    margin: 13px;
+    padding: 8px 10px 7px 15px;
+    border-radius: 21px;
+}
+.content{
+    display: flex;
+    position: relative;
+}
+
+.content::after{
+    content: "";
+    background-image: url("../img/2.jpg");
+    background-size: cover; /* Ensure the background image covers the entire area */
+    background-position: center; /* Center the background image */
+    position: absolute;
+    top: 0; /* Ensure the pseudo-element starts at the top of the parent element */
+    left: 0; /* Ensure the pseudo-element starts at the left of the parent element */
+    width: 100%;
+    height: 100%; /* Fill the entire height of the parent element */
+    opacity: 0.15;
+    z-index: -1; /* Ensure the pseudo-element is behind other content */
+}
+
+
+.con-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px
+}
+.con-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.con-right img{
+    width: 350px;
+    height: 350px;
+    border-radius: 220px;
+    margin-bottom: 23px;
+    margin-top: 25px;
+}
+
+.home-articles{
+    padding: 18px;
+    background-color: rgba(199, 182, 182, 0.5);
+    position: relative;
+
+}
+
+.year-box{
+    position: absolute;
+    background-color: red;
+}
+
+
+.home-artical{
+    display: flex;
+    margin: 27px;
+}
+
+.home-articles img{
+    width: 300px;
+    height:250px
+}
+
+
+
+.home-article-con{
+    align-self: center;
+    padding: 33px;
+    width: 30%;
+}
+
+.footer {
+    display: flex;
+    height: 60px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #d34d4d;;
+}
+
+.footer p {
+    color: white;
+    font-family:var(--font1)
+}
+.footer a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-family:var(--font1)
+}

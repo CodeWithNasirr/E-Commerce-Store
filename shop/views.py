@@ -4,6 +4,7 @@ from django.shortcuts import render
 from .models import Product,Contact,Orders,OrderUpdate
 from math import ceil
 import json
+from django.contrib import messages
 def index(request):
     allprd = []
     allCat = Product.objects.values('category')
@@ -46,6 +47,7 @@ def Search(request):
 
 
 def About(request):
+    messages.success(request,"Welcome to the About ")
     return render(request,"shop/About.html")
 def Faq(request):
     return render(request,"shop/Faq.html") 

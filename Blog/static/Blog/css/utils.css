@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+:root{
+    --main-bg-color:brown;
+    --font1:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+
+.max-width1 {
+    max-width: 80vw;
+}
+
+.max-width2 {
+    max-width: 50vw;
+}
+
+.m-auto {
+    margin: auto;
+}
+
+.my-2{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.btn{
+    border: 1px solid black;
+    margin: 10px 0px 12px 0px;
+    width: 82px;
+    border-radius: 20px;
+    height: 35px;
+}
+.btn:hover{
+    color: white;
+    background-color: var(--main-bg-color);
+}

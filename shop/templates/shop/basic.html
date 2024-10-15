@@ -68,9 +68,15 @@
             <button type="button" class="btn btn-primary mx-2 animate-color" id="popcard" data-container="body" data-toggle="popover" data-html="true" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
                 Cart(<span id="cart">0</span>)
               </button>
-
+              
+              
+            </div>
+        </nav>
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}}" role="alert">
+          {{message}}
         </div>
-    </nav>
+        {% endfor %}
     {% block body %} {% endblock %}
 
     <!-- Optional JavaScript -->
